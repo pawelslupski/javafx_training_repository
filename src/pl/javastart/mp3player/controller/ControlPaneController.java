@@ -1,5 +1,7 @@
 package pl.javastart.mp3player.controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -31,16 +33,18 @@ public class ControlPaneController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         configureButtons();
-        configureVolume();
+        configureSliders();
     }
 
-    private void configureVolume() {
-        volumeSlider.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+    private void configureSliders() {
+        volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
-            public void handle(MouseEvent event) {
-                System.out.println("Wcisnieto przycisk na suwaku głośności");
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                System.out.println("Zmiana głośności " + newValue.doubleValue());
             }
         });
+
+        songSlider.valueProperty().addListener(x -> System.out.println("Przesuniecie piosenki"));
     }
 
     private void configureButtons() {
