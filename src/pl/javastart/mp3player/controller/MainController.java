@@ -2,51 +2,24 @@ package pl.javastart.mp3player.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
     @FXML
-    private Button nextButton;
+    private ContentPaneController contentPaneController;
 
     @FXML
-    private Slider volumeSlider;
+    private ControlPaneController controlPaneController;
 
     @FXML
-    private Slider songSlider;
-
-    @FXML
-    private MenuItem aboutMenuItem;
-
-    @FXML
-    private TableView<?> contentTable;
-
-    @FXML
-    private MenuItem fileMenuItem;
-
-    @FXML
-    private MenuItem closeMenuItem;
-
-    @FXML
-    private MenuItem dirMenuItem;
-
-    @FXML
-    private Menu helpMenu;
-
-    @FXML
-    private Button prevButton;
-
-    @FXML
-    private ToggleButton playButton;
-
-    @FXML
-    private Menu fileMenu;
+    private MenuPaneController menuPaneController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
-
+        System.out.println(contentPaneController);
+        System.out.println(controlPaneController);
+        System.out.println(menuPaneController);
     }
 }
